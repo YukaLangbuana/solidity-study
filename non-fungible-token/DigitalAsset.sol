@@ -32,29 +32,7 @@ contract DigitalAsset {
         return assets[_id];
     }
 
-    function getAssets() public view returns (Asset[] memory) {
-        Asset[] memory assetsArray = new Asset[](assets.length);
-        uint256 i = 0;
-        for (uint256 key in assets) {
-            assetsArray[i] = assets[key];
-            i++;
-        }
-        return assetsArray;
-    }
-
     function getOwner(uint256 _id) public view returns (address) {
         return assets[_id].owner;
-    }
-
-    function getAssetsByOwner(address _owner) public view returns (Asset[] memory) {
-        Asset[] memory assetsArray = new Asset[](assets.length);
-        uint256 i = 0;
-        for (uint256 key in assets) {
-            if (assets[key].owner == _owner) {
-                assetsArray[i] = assets[key];
-                i++;
-            }
-        }
-        return assetsArray;
     }
 }
